@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\ChecklistController;
+use App\Http\Controllers\Admin\ChecklistGroupController;
 use App\Http\Controllers\PageController;
+use App\Models\ChecklistGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +28,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'is_admin'], function () {
         Route::resource('pages', PageController::class);
+
+        Route::resource('checklist_groups', ChecklistGroupController::class);
+        Route::resource('checklists', ChecklistController::class);
+        Route::resource('checklist_groups.checklists', ChecklistController::class); // nested resources
     });
 });
