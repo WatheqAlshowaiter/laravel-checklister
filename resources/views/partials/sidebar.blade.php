@@ -28,7 +28,8 @@
             @foreach (\App\Models\ChecklistGroup::with('checklists')->get() as $group)
 
                 <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
-                    <a class="c-sidebar-nav-dropdown-toggle" href="{{ route('admin.checklist_groups.edit', $group->id) }}">
+                    <a class="c-sidebar-nav-dropdown-toggle"
+                        href="{{ route('admin.checklist_groups.edit', $group->id) }}">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-folder') }}"></use>
                         </svg> {{ $group->name }}
@@ -39,9 +40,11 @@
                             <li class="c-sidebar-nav-item">
                                 <a class="c-sidebar-nav-link" style="padding: .5rem .5rem .5rem 76px"
                                     href="{{ route('admin.checklist_groups.checklists.edit', [$group, $checklist]) }}">
-                           <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="https://checklister.test/vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
-                </svg>
+                                    <svg class="c-sidebar-nav-icon">
+                                        <use
+                                            xlink:href="https://checklister.test/vendors/@coreui/icons/svg/free.svg#cil-notes">
+                                        </use>
+                                    </svg>
                                     {{ $checklist->name }}</a>
                             </li>
                         @endforeach
@@ -61,7 +64,7 @@
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.checklist_groups.create') }}" class="c-sidebar-nav-link">
                     <svg class="c-sidebar-nav-icon">
-                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}">
+                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-library-add') }}">
                         </use>
                     </svg> {{ __('New checklist Group') }}
                 </a>

@@ -25,6 +25,7 @@
                                         <div class="form-group">
                                             <label for="name">{{ __('Name') }}</label>
                                             <input class="form-control" id="name" type="text" name="name"
+                                                value="{{ old('name') }}" required autofocus
                                                 placeholder="{{ __('Checklist name') }}">
                                         </div>
 
