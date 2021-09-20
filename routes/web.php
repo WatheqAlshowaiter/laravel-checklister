@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\ChecklistController;
 use App\Http\Controllers\Admin\ChecklistGroupController;
 use App\Http\Controllers\Admin\TaskController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\PageController;
 use App\Models\ChecklistGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'is_admin'], function () {
-        Route::resource('pages', PageController::class);
+        Route::resource('pages', PageController::class)->only(['edit', 'update']);
 
         Route::resource('checklist_groups', ChecklistGroupController::class);
         Route::resource('checklists', ChecklistController::class);
