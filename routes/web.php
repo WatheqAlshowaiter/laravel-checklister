@@ -35,5 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('checklist_groups.checklists', ChecklistController::class); // nested resources
         Route::resource('checklists.tasks', TaskController::class); // nested resources
 
+        Route::get('users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
     });
 });
