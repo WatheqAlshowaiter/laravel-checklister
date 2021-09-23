@@ -18,12 +18,12 @@
 
                     <ul class="c-sidebar-nav-dropdown-items">
                         @foreach ($group->checklists as $checklist)
-                            <li class="c-sidebar-nav-item">
+                            <li class="c-sidebar-nav-item" style="padding: .5rem .5rem .5rem .7rem">
                                 <a class="c-sidebar-nav-link" style="padding: .5rem .5rem .5rem 76px"
                                     href="{{ route('admin.checklist_groups.checklists.edit', [$group, $checklist]) }}">
                                     <svg class="c-sidebar-nav-icon">
                                         <use
-                                            xlink:href="https://checklister.test/vendors/@coreui/icons/svg/free.svg#cil-notes">
+                                            xlink:href="https://checklister.test/vendors/@coreui/icons/svg/free.svg#cil-list">
                                         </use>
                                     </svg>
                                     {{ $checklist->name }}</a>
@@ -51,6 +51,31 @@
                 </a>
             </li>
 
+
+        @else
+
+
+            {{-- ELSE --}}
+
+            @foreach (\App\Models\ChecklistGroup::with('checklists')->get() as $group)
+
+                <li class="c-sidebar-nav-title ">
+                    {{ $group->name }}
+
+                    @foreach ($group->checklists as $checklist)
+                <li class="c-sidebar-nav-item" style="">
+                    <a class="c-sidebar-nav-link" style="" href="{{ route('users.checklists.show', [$checklist]) }}">
+                        <svg class="c-sidebar-nav-icon">
+                            <use xlink:href="https://checklister.test/vendors/@coreui/icons/svg/free.svg#cil-list">
+                            </use>
+                        </svg>
+                        {{ $checklist->name }}</a>
+                </li>
+            @endforeach
+            </li>
+        @endforeach
+        {{-- END ELSE --}}
+
         @endif
 
         @if (auth()->user()->is_admin)
@@ -62,12 +87,14 @@
                 <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link"
                         href="{{ route('admin.pages.edit', $page) }}">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-file') }}"></use>
                         </svg> {{ $page->title }}</a>
 
                 </li>
 
             @endforeach
+
+
 
         @endif
 
