@@ -61,7 +61,6 @@
 
                 <li class="c-sidebar-nav-title ">
                     {{ $group->name }}
-
                     @foreach ($group->checklists as $checklist)
                 <li class="c-sidebar-nav-item" style="">
                     <a class="c-sidebar-nav-link" style="" href="{{ route('users.checklists.show', [$checklist]) }}">
