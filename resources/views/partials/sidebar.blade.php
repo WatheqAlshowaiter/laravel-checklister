@@ -53,22 +53,33 @@
 
 
         @else
-
-
             {{-- ELSE --}}
-
-            @foreach (\App\Models\ChecklistGroup::with(['checklists' => function ($query) {$query->whereNull('user_id');},])->get() as $group)
-
+            @foreach ($user_menu as $group)
                 <li class="c-sidebar-nav-title ">
-                    {{ $group->name }}
-                    @foreach ($group->checklists as $checklist)
+                    {{ $group['name'] }}
+                    @if ($group['is_new'])
+                        <span class="badge badge-success">NEW</span>
+
+                    @elseif($group['is_updated'])
+                        <span class="badge badge-info">UPDATED</span>
+                    @endif
+                    @foreach ($group['checklists'] as $checklist)
                 <li class="c-sidebar-nav-item" style="">
-                    <a class="c-sidebar-nav-link" style="" href="{{ route('users.checklists.show', [$checklist]) }}">
+                    <a class="c-sidebar-nav-link" style=""
+                        href="{{ route('users.checklists.show', [$checklist['id']]) }}">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="https://checklister.test/vendors/@coreui/icons/svg/free.svg#cil-list">
                             </use>
                         </svg>
-                        {{ $checklist->name }}</a>
+                        {{ $checklist['name'] }}
+
+                        @if ($checklist['is_new'])
+                            <span class="badge badge-success">NEW</span>
+
+                        @elseif($checklist['is_updated'])
+                            <span class="badge badge-info">UPDATED</span>
+                        @endif
+                    </a>
                 </li>
             @endforeach
             </li>
