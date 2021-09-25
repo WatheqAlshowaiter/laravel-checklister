@@ -7,7 +7,7 @@
             <li class="c-sidebar-nav-title">{{ __('Manage Checklists') }}</li>
 
 
-            @foreach (\App\Models\ChecklistGroup::with('checklists')->get() as $group)
+            @foreach ($admin_menu as $group)
 
                 <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
                     <a class="c-sidebar-nav-link" href="{{ route('admin.checklist_groups.edit', $group->id) }}">
