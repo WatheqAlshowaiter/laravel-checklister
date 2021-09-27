@@ -55,11 +55,6 @@
 @endsection
 
 @section('scripts')
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#content-textarea'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+
+    @include('admin.ckeditor')
 @endSection

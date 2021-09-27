@@ -15,7 +15,7 @@
                                     @foreach ($checklist->tasks as $task)
                                         <tr>
                                             <td></td>
-                                            <td class="task-description-toggle" data-id="{{ $task->id }}">
+                                            <td class="task-description-toggle" data-id="{{ $task->id }}"  style="cursor: pointer">
                                                 {{ $task->name }}
                                             </td>
                                             <td>
@@ -24,7 +24,8 @@
                                                         xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-caret-top') }}">
                                                     </use>
                                                 </svg>
-                                                <svg id="task-caret-bottom-{{ $task->id }}" class="c-sidebar-nav-icon d-none">
+                                                <svg id="task-caret-bottom-{{ $task->id }}"
+                                                    class="c-sidebar-nav-icon d-none">
                                                     <use
                                                         xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-caret-bottom') }}">
                                                     </use>
@@ -33,7 +34,7 @@
                                         </tr>
                                         <tr class="d-none" id="task-description-{{ $task->id }}">
                                             <td></td>
-                                            <td colspan="2">{!! $task->description !!}}</td>
+                                            <td colspan="2">{!! $task->description !!}</td>
                                         </tr>
                                     @endforeach
                                 </table>

@@ -101,7 +101,6 @@
     <script src="https://unpkg.com/@coreui/coreui@3.4.0/dist/js/coreui.min.js"></script>
 
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
     @yield('scripts')
 
     @livewireScripts
