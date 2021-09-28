@@ -41,7 +41,7 @@ class ChecklistShow extends Component
 
 
         if ($task) {
-            $user_task = Task::where('task_id', $task_id)->first();
+            $user_task = Task::where('task_id', $task_id)->where('user_id', auth()->id())->first();
 
             if ($user_task) {
                 if (is_null($user_task->completed_at)) {
@@ -55,6 +55,8 @@ class ChecklistShow extends Component
                 $user_task['completed_at'] = now();
                 $user_task->save();
             }
+
+            $this->emit('task_complete', $task_id, $task->checklist_id);
         }
     }
 }
