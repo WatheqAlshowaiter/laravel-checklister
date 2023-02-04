@@ -7,7 +7,6 @@ use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -19,6 +18,7 @@ class PageController extends Controller
     public function update(UpdatePageRequest $request, Page $page): RedirectResponse
     {
         $page->update($request->validated());
+
         return redirect()->route('admin.pages.edit', $page)->with('message', __('Page updated successfully'));
     }
 }

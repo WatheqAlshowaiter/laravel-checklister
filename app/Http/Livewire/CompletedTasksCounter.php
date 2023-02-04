@@ -7,7 +7,9 @@ use Livewire\Component;
 class CompletedTasksCounter extends Component
 {
     public $completed_tasks = 0;
+
     public $tasks_count = 0;
+
     public $checklist_id;
 
     protected $listeners = ['task_complete' => 'recalculate_tasks'];

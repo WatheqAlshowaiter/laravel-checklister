@@ -6,8 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreTaskRequest extends FormRequest
 {
-
     protected $errorBag = 'task';
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,7 +27,7 @@ class StoreTaskRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'description' => ['required']
+            'description' => ['required'],
         ];
     }
 }
