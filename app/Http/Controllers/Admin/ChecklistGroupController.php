@@ -11,7 +11,6 @@ use Illuminate\Http\RedirectResponse;
 
 class ChecklistGroupController extends Controller
 {
-
     public function create(): View
     {
         return view('admin.checklist_groups.create');
@@ -20,6 +19,7 @@ class ChecklistGroupController extends Controller
     public function store(StoreChecklistGroupRequest $request): RedirectResponse
     {
         ChecklistGroup::create($request->validated());
+
         return redirect()->route('welcome');
     }
 
@@ -31,12 +31,12 @@ class ChecklistGroupController extends Controller
     public function update(UpdateChecklistGroupRequest $request, ChecklistGroup $checklistGroup): RedirectResponse
     {
         $checklistGroup->update($request->validated());
+
         return redirect()->route('welcome');
     }
 
     public function destroy(ChecklistGroup $checklistGroup): RedirectResponse
     {
-
         $checklistGroup->delete();
 
         return redirect()->route('welcome');

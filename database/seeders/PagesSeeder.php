@@ -14,7 +14,7 @@ class PagesSeeder extends Seeder
      */
     public function run()
     {
-        Page::create(['title' => 'Welcome','content' => 'Welcome']);
-        Page::create(['title' => 'Get Consultation','content' => 'Get Consultation']);
+        Page::create(['title' => 'Welcome', 'content' => 'Welcome']);
+        Page::create(['title' => 'Get Consultation', 'content' => 'Get Consultation']);
     }
 }

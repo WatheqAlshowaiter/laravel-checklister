@@ -8,7 +8,9 @@ use Livewire\Component;
 class ChecklistShow extends Component
 {
     public $checklist;
+
     public $opened_tasks = [];
+
     public $completed_tasks = [];
 
     public function render()
@@ -30,7 +32,6 @@ class ChecklistShow extends Component
         if (in_array($task_id, $this->opened_tasks)) {
             $this->opened_tasks = array_diff($this->opened_tasks, [$task_id]);
         } else {
-
             $this->opened_tasks[] = $task_id;
         }
     }
@@ -38,7 +39,6 @@ class ChecklistShow extends Component
     public function complete_task($task_id)
     {
         $task = Task::find($task_id);
-
 
         if ($task) {
             $user_task = Task::where('task_id', $task_id)->where('user_id', auth()->id())->first();

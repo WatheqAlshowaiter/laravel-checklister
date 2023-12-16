@@ -2,9 +2,8 @@
 
 use App\Http\Controllers\Admin\ChecklistController;
 use App\Http\Controllers\Admin\ChecklistGroupController;
-use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\PageController;
-use App\Models\ChecklistGroup;
+use App\Http\Controllers\Admin\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
